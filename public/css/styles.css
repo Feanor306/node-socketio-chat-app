@@ -181,3 +181,24 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
+
+#check-rooms {
+    margin-top: 16px;
+}
+
+#rooms-container {
+    margin-top: 16px;
+}
+
+.room-result {
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    background: #7C5CBF;
+    color: white;
+    transition: background .3s ease;
+}
+
+.room-result:hover {
+    background: #6b47b8;
+}

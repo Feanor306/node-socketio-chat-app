@@ -1,16 +1,16 @@
 const socket = io()
 
 //Elements
-const $messageForm = document.querySelector("#message-form")
+const $messageForm = document.querySelector('#message-form')
 const $messageFormInput = $messageForm.querySelector('input')
 const $messageFormButton = $messageForm.querySelector('button')
-const $sendLocationButton = document.querySelector("#send-location")
-const $messages = document.querySelector("#messages")
+const $sendLocationButton = document.querySelector('#send-location')
+const $messages = document.querySelector('#messages')
 
 //Templatess
-const messageTemplate = document.querySelector("#message-template").innerHTML
-const linkTemplate = document.querySelector("#link-template").innerHTML
-const sidebarTemplate = document.querySelector("#sidebar-template").innerHTML
+const messageTemplate = document.querySelector('#message-template').innerHTML
+const linkTemplate = document.querySelector('#link-template').innerHTML
+const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
 
 //Options
 const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
@@ -83,9 +83,9 @@ $messageForm.addEventListener('submit', (e) => {
         $messageFormInput.value = ''
         $messageFormInput.focus()
 
-        if (error) return console.log(error)
+        if (error) return alert(error)
         
-        console.log('The message was delivered')
+        //console.log('The message was delivered')
     })
 })
 

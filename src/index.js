@@ -4,7 +4,13 @@ const express = require('express')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
 const { generateMessage, generateLocationMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
+const { 
+    addUser, 
+    removeUser, 
+    getUser, 
+    getUsersInRoom,  
+    getRoomList
+} = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -67,6 +73,18 @@ io.on('connection', (socket) => {
             })
         }
     })
+})
+
+//app.use(express.json())
+app.get('/rooms', (req, res) => {
+    const rooms = getRoomList()
+
+    if (!rooms || rooms.length == 0){
+        return res.status(400).send({})
+    }
+
+    res.header('Content-Type', 'application/json');
+    res.send({ rooms })
 })
 
 server.listen(port, () => {
